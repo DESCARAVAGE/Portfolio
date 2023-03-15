@@ -14,7 +14,7 @@ class CareerFixtures extends Fixture
         $faker = Factory::create();
         $career = new Career();
 
-        $career->setDescription($faker->text());
+        $career->setDescription($faker->sentence());
         $manager->persist($career);
         $manager->flush();
     }
