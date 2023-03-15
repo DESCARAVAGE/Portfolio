@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\ProjetRepository;
+use App\Repository\ProjectRepository;
 use Doctrine\ORM\Mapping as ORM;
 use PHPStan\Type\Doctrine\Descriptors\TextType;
 
-#[ORM\Entity(repositoryClass: ProjetRepository::class)]
-class Projet
+#[ORM\Entity(repositoryClass: ProjectRepository::class)]
+class Project
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -21,7 +21,7 @@ class Projet
     private string $slug;
 
     #[ORM\Column(type: 'text')]
-    private TextType $description;
+    private string $description;
 
     #[ORM\Column(type: 'string', length: 255)]
     private string $link;
@@ -58,12 +58,12 @@ class Projet
         return $this;
     }
 
-    public function getDescription(): TextType
+    public function getDescription(): string
     {
         return $this->description;
     }
 
-    public function setDescription(TextType $description): self
+    public function setDescription(string $description): self
     {
         $this->description = $description;
 
