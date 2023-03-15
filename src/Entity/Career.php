@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use App\Repository\CareerRepository;
 use Doctrine\ORM\Mapping as ORM;
-use PHPStan\Type\Doctrine\Descriptors\TextType;
 
 #[ORM\Entity(repositoryClass: CareerRepository::class)]
 class Career
@@ -15,19 +14,19 @@ class Career
     private int $id;
 
     #[ORM\Column(type: 'text', nullable: true)]
-    private TextType $description;
+    private string $description;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getDescription(): TextType
+    public function getDescription(): string
     {
         return $this->description;
     }
 
-    public function setDescription(TextType $description): self
+    public function setDescription(string $description): self
     {
         $this->description = $description;
 
