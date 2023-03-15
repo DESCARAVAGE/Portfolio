@@ -2,8 +2,8 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Career;
 use Faker\Factory;
+use App\Entity\Career;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 
@@ -14,6 +14,7 @@ class CareerFixtures extends Fixture
         $faker = Factory::create();
 
         $career = new Career();
+
         $career->setDescription($faker->text());
         $manager->persist($career);
         $manager->flush();
