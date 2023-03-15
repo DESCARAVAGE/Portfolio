@@ -21,7 +21,7 @@ class Career
         return $this->id;
     }
 
-    public function getDescription(): ?string
+    public function getDescription(): string
     {
         return $this->description;
     }
