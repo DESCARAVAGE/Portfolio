@@ -12,7 +12,6 @@ class CareerFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $faker = Factory::create();
-
         $career = new Career();
 
         $career->setDescription($faker->text());
