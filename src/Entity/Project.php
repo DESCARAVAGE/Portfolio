@@ -2,11 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\ProjectRepository;
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
-use PHPStan\Type\Doctrine\Descriptors\TextType;
+use App\Repository\ProjectRepository;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ProjectRepository::class)]
+#[Vich\Uploadable]
 class Project
 {
     #[ORM\Id]
@@ -28,6 +32,36 @@ class Project
 
     #[ORM\Column(type: 'string', length: 255)]
     private string $image;
+
+    #[Vich\UploadableField(mapping: 'project_image', fileNameProperty: 'image')]
+    #[Assert\Image(
+        mimeTypes: ['image/jpeg', 'image/png', 'image/webp'],
+        maxSize: '2M',
+        groups: ['add', 'default'],
+    )]
+    private ?File $imageFile = null;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private ?\DateTimeInterface $updatedAt = null;
+
+    public function __construct()
+    {
+        $this->updatedAt = new DateTimeImmutable();
+    }
+
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            $this->updatedAt = new DateTimeImmutable();
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
 
     public function getId(): ?int
     {

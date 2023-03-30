@@ -19,7 +19,6 @@ class ProfilFixtures extends Fixture
         $profil->setPurpose($faker->sentence());
         $profil->setPurpose($faker->sentence());
         $profil->setMoreDetail($faker->sentence());
-        $profil->setImage($faker->word());
         $profil->setcurriculumVitae($faker->word());
         $manager->persist($profil);
         $manager->flush();
