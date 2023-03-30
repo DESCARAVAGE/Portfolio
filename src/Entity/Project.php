@@ -30,8 +30,8 @@ class Project
     #[ORM\Column(type: 'string', length: 255)]
     private string $link;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private string $image;
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private ?string $image = null;
 
     #[Vich\UploadableField(mapping: 'project_image', fileNameProperty: 'image')]
     #[Assert\Image(

@@ -15,28 +15,24 @@
 	<table class="table">
 		<thead>
 			<tr>
-				<th>Dan</th>
+				<th>Titre</th>
 				<th>Description</th>
-				<th>Purpose</th>
-				<th>MoreDetail</th>
+				<th>Lien du projet</th>
 				<th>Image</th>
-				<th>CurriculumVitae</th>
 				<th>actions</th>
 			</tr>
 		</thead>
 		<tbody>
-			{% for profil in profils %}
+			{% for project in projects %}
 				<tr>
-					<td>{{ profil.dan }}</td>
-					<td>{{ profil.description }}</td>
-					<td>{{ profil.purpose }}</td>
-					<td>{{ profil.moreDetail }}</td>
-					<td>{{ profil.imageFile }}</td>
-					<td>{{ profil.curriculumVitae }}</td>
+					<td>{{ project.title }}</td>
+					<td>{{ project.description }}</td>
+					<td>{{ project.link }}</td>
+					<td>{{ project.imageFile }}</td>
 					<td>
 						<div>
-							<a href="{{ path('admin_profil_edit', {'id': profil.id}) }}">edit</a>
-							{{ include('admin/admin_profil/_delete_form.html.twig') }}
+							<a href="{{ path('admin_project_edit', {'id': project.id}) }}">edit</a>
+							{{ include('admin/admin_project/_delete_form.html.twig') }}
 						</div>
 					</td>
 				</tr>
@@ -48,5 +44,5 @@
 		</tbody>
 	</table>
 
-	<a href="{{ path('admin_profil_add') }}">Create new</a>
+	<a href="{{ path('admin_project_add') }}">Create new</a>
 {% endblock %}

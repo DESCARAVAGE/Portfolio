@@ -23,13 +23,9 @@ class ProjectType extends AbstractType
             ->add('link', TextType::class, [
                 'label' => 'Lien du projet',
             ])
-            ->add('purpose', TextType::class, [
-                'label' => 'Objectif',
-            ])
             ->add('imageFile', VichImageType::class, [
                 'label' => 'Image',
                 'allow_delete'  => false,
-                'download_link' => false,
                 'required'   => false,
             ]);
     }
