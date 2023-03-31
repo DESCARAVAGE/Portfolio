@@ -29,7 +29,6 @@ class ProjectFixtures extends Fixture
             $project->setSlug($this->slugify->generate($project->getTitle()));
             $project->setDescription($faker->sentences(3, true));
             $project->setLink($faker->sentence());
-            $project->setImage($faker->sentence());
             $manager->persist($project);
             $this->addReference('project_' . $i, $project);
         }

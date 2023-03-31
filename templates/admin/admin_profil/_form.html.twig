@@ -1,0 +1,9 @@
+{{ form_start(form) }}
+    {{form_row(form.dan)}} 
+    {{form_row(form.description)}}
+    {{form_row(form.purpose)}}
+    {{form_row(form.moreDetail)}}
+    {{form_row(form.imageFile)}}
+    {{form_row(form.curriculumVitae)}} 
+    <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

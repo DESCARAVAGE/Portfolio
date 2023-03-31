@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil index
+{% endblock %}
+
+{% block body %}
+	<a class="ms-5 d-flex gap-3 text-decoration-none" href="{{ path('admin_home') }}">
+		<i class="bi bi-arrow-left fs-1"></i>
+		<div class="d-flex align-self-center">
+			<p class="arrowT m-0 fs-5">Retour à l'accueil</p>
+		</div>
+	</a>
+	<h1 class="text-primary">Profil index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Dan</th>
+				<th>Description</th>
+				<th>Purpose</th>
+				<th>MoreDetail</th>
+				<th>Image</th>
+				<th>CurriculumVitae</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for profil in profils %}
+				<tr>
+					<td>{{ profil.dan }}</td>
+					<td>{{ profil.description }}</td>
+					<td>{{ profil.purpose }}</td>
+					<td>{{ profil.moreDetail }}</td>
+					<td>{{ profil.imageFile }}</td>
+					<td>{{ profil.curriculumVitae }}</td>
+					<td>
+						<div>
+							<a href="{{ path('admin_profil_edit', {'id': profil.id}) }}">edit</a>
+							{{ include('admin/admin_profil/_delete_form.html.twig') }}
+						</div>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="9">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('admin_profil_add') }}">Create new</a>
+{% endblock %}

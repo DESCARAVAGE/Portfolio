@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{parent()}}
+	| Accueil
+{% endblock %}
+{% block body %}
+	<h1 class="text-center my-4">Bienvenue dans votre espace administrateur</h1>
+	<section class="row mx-0">
+		<div class="adminCard mb-5 d-flex justify-content-center">
+			<a class="text-decoration-none" href="{{ path('admin_profil_index') }}">
+				<div class="box border border-dark">
+
+					<h2 class="m-5">Mon profil</h2>
+				</div>
+			</a>
+		</div>
+		<div class="adminCard mb-5 d-flex justify-content-center">
+			<a class="text-decoration-none" href="{{ path('admin_project_index') }}">
+				<div class="box border border-dark">
+
+					<h2 class="m-5">Mes projets</h2>
+				</div>
+			</a>
+		</div>
+	</section>
+{% endblock %}
