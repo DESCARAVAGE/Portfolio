@@ -5,7 +5,7 @@ namespace App\Service;
 class Slugify
 {
     public const DIVIDER = '-';
-    public function generate(string $input): string
+    public function generate(string $input): ?string
     {
         // replace non letter or digits by divider
         $input = preg_replace('~[^\pL\d]+~u', self::DIVIDER, $input);
